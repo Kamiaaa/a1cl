@@ -1,0 +1,39 @@
+/*
+ * Arrow hover effect (from the recording): on hover the chevron slides right
+ * while fading out, then re-enters from the left and settles in place.
+ * Plays once per hover / keyboard focus.
+ */
+.arrowBtn .arrow {
+  display: inline-flex;
+}
+
+.arrowBtn:hover .arrow,
+.arrowBtn:focus-visible .arrow {
+  animation: arrowSlide 0.55s ease-in-out both;
+}
+
+@keyframes arrowSlide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(7px);
+    opacity: 0;
+  }
+  56% {
+    transform: translateX(-6px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrowBtn:hover .arrow,
+  .arrowBtn:focus-visible .arrow {
+    animation: none;
+  }
+}
